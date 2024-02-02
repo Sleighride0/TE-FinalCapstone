@@ -67,13 +67,13 @@ export default {
 <style scoped>
 .visit-info {
     display: flex;
-    flex-direction: column; /* Updated to stack items vertically */
-    align-items: center; /* Optional: Center items horizontally */
+    flex-direction: column; 
+    align-items: center; 
     margin-top:200px;
 }
 
 .card {
-    width: 400px; /* Set a fixed width for the cards */
+    width: 400px; 
     background-color: #3498db;
     color: #fff;
     border-radius: 8px;

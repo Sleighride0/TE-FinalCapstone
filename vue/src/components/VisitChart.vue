@@ -143,7 +143,6 @@ export default {
       const userGoal = prompt('Enter your goal in minutes:');
       const parsedUserGoal = parseInt(userGoal) || 0;
       try {
-        // Call the ProfileService method with the user's goal
         await ProfileService.updateVisitDurationGoalByUserId(parsedUserGoal, this.userId);
 
       this.userGoal = parsedUserGoal;
@@ -152,7 +151,6 @@ export default {
       if (this.$refs.chart && this.$refs.chart.chart) {
         const chart = this.$refs.chart.chart;
 
-        // Ensure chart.options is defined
         if (!chart.options) {
           chart.options = {};
         }
@@ -167,31 +165,20 @@ export default {
           chart.options.scales.yAxes = [{ ticks: {} }];
         }
 
-
         chart.options.scales.yAxes[0].ticks.min = Math.min(...chart.data.datasets[0].data, this.userGoal);
         chart.options.scales.yAxes[0].ticks.max = Math.max(...chart.data.datasets[0].data, this.userGoal + 1000);
 
-        // Log the updated y-axis range
-        console.log(
-          'Updated y-axis range:',
-          chart.options.scales.yAxes[0].ticks.min,
-          '-',
-          chart.options.scales.yAxes[0].ticks.max
-        );
-
-        // Update the chart
         chart.update();
         this.drawGoalLine();
       }
     } catch (error) {
         console.error('Error updating user goal:', error);
-        // Handle the error as needed
       }
     },
     drawGoalLine() {
   const chart = this.$refs.chart.chart;
 
-  // Remove existing goal line datasets
+  // Remove existing goal line
   chart.data.datasets = chart.data.datasets.filter(
     (dataset) => !dataset.label.startsWith('Goal:')
   );
@@ -210,7 +197,6 @@ export default {
 
   chart.data.datasets.push(goalLineDataset);
 
-  // Reassign the datasets property to trigger reactivity
   this.chartData.datasets = [...chart.data.datasets];
 
   chart.update();
@@ -227,22 +213,13 @@ export default {
       const chart = this.$refs.chart.chart;
 
       if (chart.data.datasets.length > 0 && chart.data.datasets[0].data) {
-        // Set the min and max values for the left y-axis
         chart.options.scales.yAxes[0].ticks.min = 0;
         chart.options.scales.yAxes[0].ticks.max = Math.max(
           ...chart.data.datasets[0].data,
           this.userGoal + 1000
         );
 
-        // Log the initial y-axis range
-        console.log(
-          'Initial y-axis range:',
-          chart.options.scales.yAxes[0].ticks.min,
-          '-',
-          chart.options.scales.yAxes[0].ticks.max
-        );
-
-        // Update the chart
+      
         chart.update();
 
         this.drawGoalLine();

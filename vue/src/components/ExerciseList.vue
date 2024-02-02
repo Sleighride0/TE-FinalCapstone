@@ -70,7 +70,7 @@ export default {
       this.exercise.userId = this.$store.getters.getUserId;
     },
     getExerciseByUserId() {
-      this.isLoading = true;  // Add this line
+      this.isLoading = true;  
       ExerciseService.getExerciseByUserId(this.$store.getters.getUserId).then(
         (response) => {
           this.isLoading = false;
@@ -105,7 +105,6 @@ export default {
         return;
       }
 
-      // Set the user ID before making the API call
       this.setUserId();
 
       this.isLoading = true;
@@ -120,14 +119,11 @@ export default {
         }));
       });
     },
-    // Add a method to reformat the date
     reformatDate(date) {
-      // Assuming date is in "YYYY-MM-DD" format
       const [year, month, day] = date.split("-");
       return `${month}/${day}/${year}`;
     },
     getAllExercises() {
-      // Set the user ID before making the API call
       this.setUserId();
 
       this.isLoading = true;
@@ -136,7 +132,7 @@ export default {
           this.isLoading = false;
           this.exercises = response.data.map((exercise) => ({
             ...exercise,
-            date: this.reformatDate(exercise.date), // Reformat date
+            date: this.reformatDate(exercise.date), 
           }));
         }
       );
@@ -146,7 +142,6 @@ export default {
       this.selectedDate = '';
       this.$refs.filterDateInput.value = '';
       if (!this.showExerciseList) {
-        // Call getExerciseByDayByUserId when hiding the list
         this.getExerciseByUserId();
       }
     },
@@ -163,16 +158,13 @@ export default {
 
 .exercise-list-container {
   width: 66.67%;
-  /* 2/3 of the width */
   float: left;
   box-sizing: border-box;
   padding-right: 10px;
-  /* Adjust spacing between Exercise List and Visit List */
 }
 
 .exercise-list-wrapper {
   margin-top: 10px;
-  /* Adjust as needed */
 }
 
 .exercise-list {

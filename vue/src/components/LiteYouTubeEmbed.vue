@@ -28,7 +28,5 @@
 };
 </script>
   
-  <!-- You can add scoped styles if necessary -->
   <style scoped>
-  /* Add your component-specific styles here */
   </style>

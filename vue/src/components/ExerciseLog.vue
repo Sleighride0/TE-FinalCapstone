@@ -4,7 +4,6 @@
     <p class="error-message" v-show="showErrorMessage">{{ errorMessage }}</p>
     <form class="exercise-form" v-on:submit.prevent="submitExercise">
       <div class="exercise-buttons">
-        <!-- ExerciseButtons component will handle the buttons -->
         <ExerciseButtons :mode="'select'" :selectExercise="selectExercise" />
       </div>
 
@@ -130,7 +129,6 @@ export default {
 
     },
     selectExercise(exerciseOption) {
-      // Handle the selected exercise logic
       this.exercise.exerciseName = exerciseOption.name;
       this.updateExerciseMode();
     },
@@ -241,7 +239,7 @@ body {
 }
 
 .exercise-form {
-  max-width: 700px; /* Adjust the max-width to make the form wider */
+  max-width: 700px; 
   margin: auto;
   padding: 20px;
   background-color: #fff;
@@ -259,7 +257,7 @@ label {
   margin-bottom: 5px;
   font-size: 20px;
   font-weight: bold;
-  text-align: left; /* Align the labels to the left */
+  text-align: left; 
 }
 
 .input-container {
@@ -274,7 +272,7 @@ label {
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
-  margin-top: 5px; /* Add some top margin to the inputs for spacing */
+  margin-top: 5px; 
 }
 
 select {

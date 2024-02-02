@@ -5,20 +5,20 @@
         
       </div>
       <div class="contact-form">
-        <AaronTest />
+        <ExerciseAPIVue />
       </div>
     </div>
   </template>
   
   <script>
-  import AaronTest from '../components/AaronTest.vue';
+  import ExerciseAPI from '../components/ExerciseAPI.vue';
   
   export default {
     data() {
       return {};
     },
     components: {
-      AaronTest
+      ExerciseAPI
     }
   };
   </script>

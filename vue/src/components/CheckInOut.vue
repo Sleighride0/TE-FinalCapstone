@@ -129,18 +129,14 @@ export default {
 .check-btn-out {
   font-family: 'Exo 2', sans-serif;
   background-color: #2ecc71;
-  /* Green color for Check In */
   color: #fff;
   padding: 25px 50px;
-  /* Increased padding for a bigger button */
-  font-size: 20px;
-  /* Increased font size */
+    font-size: 20px;
   cursor: pointer;
   border: none;
   border-radius: 12px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  /* Subtle box shadow for a modern look */
   grid-area: "the-button";
   width:200px;
 
